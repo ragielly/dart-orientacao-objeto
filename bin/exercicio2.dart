@@ -25,3 +25,16 @@
 // as operações de adicionar e cancelar reservas devem ser realizadas apenas por meio
 // de métodos específicos dentro da classe. Verifique se a lista de reservas está protegida
 // e testada corretamente.
+
+import 'package:anybank/cliente.dart';
+
+void main(){
+  Cliente cliente1 = Cliente("Joaquim",[]);
+
+  cliente1.reservarQuarto('L203');
+  cliente1.reservarQuarto('L204');
+  cliente1.reservarQuarto('L205');
+  cliente1.cancelarReserva('L203');
+  cliente1.reservarQuarto('L205');
+}
+
