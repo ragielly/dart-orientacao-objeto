@@ -4,3 +4,22 @@
 //e a quantidade em estoque. Em seguida, você deve instanciar dois itens: um para "Smartphone", com 100
 //unidades em estoque, e outro para "Notebook", com 50 unidades. Por fim, você deve imprimir as informações
 //desses itens no terminal.
+
+void main(){
+  ItensEstoque item1 = ItensEstoque("notebook", 50);
+  ItensEstoque item2 = ItensEstoque("smartphone", 100);
+
+  List<ItensEstoque> itens = <ItensEstoque>[item1,item2];
+
+  for (ItensEstoque item in itens) {
+    print('Produto ${item.nomeProduto}: Quantidade Estoque: ${item.qtdEstoque}');
+  }
+
+}
+
+class ItensEstoque {
+  String nomeProduto;
+  int qtdEstoque;
+
+  ItensEstoque(this.nomeProduto,this.qtdEstoque);
+}
