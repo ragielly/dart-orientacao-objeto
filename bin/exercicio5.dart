@@ -29,3 +29,28 @@
 // Adicione um método calcularValorTotal nas classes Quarto, QuartoMedio e QuartoLuxo.
 //  O método deve calcular o valor total da reserva com base em uma tarifa diária
 //   específica para cada tipo de quarto. Na main, crie exemplos de reservas para os três tipos de quarto e mostre o valor total calculado.
+
+void main(){
+
+ }
+
+ class Quarto{
+ String tipoQuarto;
+ double valorDiaria;
+ int numeroDiaria;
+ String metReserva;
+
+ Quarto(this.tipoQuarto,this.valorDiaria,this.numeroDiaria,this.metReserva);
+ }
+
+ class QuartoSimples extends Quarto{
+    QuartoSimples(super.tipoQuarto,super.valorDiaria,super.numeroDiaria,super.metReserva);
+ }
+ class QuartoMedio extends Quarto{
+    QuartoMedio(super.tipoQuarto,super.valorDiaria,super.numeroDiaria,super.metReserva);
+ }
+ class QuartoLuxo extends Quarto{
+    QuartoLuxo(super.tipoQuarto,super.valorDiaria,super.numeroDiaria,super.metReserva);
+ }
+
+
