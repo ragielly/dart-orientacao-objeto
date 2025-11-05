@@ -24,7 +24,7 @@ void main(){
 
 }
 
-class Animal{
+abstract class Animal{
   String nome;
   int idade;
 

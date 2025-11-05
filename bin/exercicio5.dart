@@ -1,56 +1,54 @@
-// 4. Representando quartos com herança
-// Crie três classes que representam três tipos de quartos em um hotel:
-//  quarto simples, quarto médio e quarto luxo. Todos os quartos têm em 
-//  comum as seguintes características:
+void main() {
+  QuartoSimples quartoSimples = QuartoSimples(3);
+  quartoSimples.reservar();
+  quartoSimples.calcularValorTotal();
+  QuartoMedio quartoMedio = QuartoMedio(5);
+  quartoMedio.reservar();
+  quartoMedio.servirCafeDaManha();
+  quartoMedio.calcularValorTotal();
+  QuartoLuxo quartoLuxo = QuartoLuxo(7);
+  quartoLuxo.reservar();
+  quartoLuxo.servirCafeDaManha();
+  quartoLuxo.servicoDeQuarto();
+  quartoLuxo.calcularValorTotal();
+}
 
-// Tipo de quarto: indica se o quarto é simples, médio ou luxo;
-// Valor da diária: registra a diária do tipo do quarto. Por exemplo,
-// a diária do quarto simples é 80 reais; a do quarto médio é 250 reais;
-// a do quarto luxo é 1000 reais. Repare que todos possuem a característica
-// valorDiaria em comum, que é reaproveitada nos três tipos de quarto;
-// Número de diárias: o número de diárias reservadas por um(a) hóspede;
-// Método de reservar: realiza a ação de reservar um quarto.
-// Vamos lá?
+abstract class Quarto {
+  String tipo;
+  double valorDiaria;
+  int diarias;
 
-// 5. Adicionando diferenças com polimorfismo
-// Agora que você criou as três classes de quartos,
-// adicione as diferenças que existem entre elas:
+  Quarto(this.diarias, this.valorDiaria, this.tipo);
 
-// Café da manhã: apenas os quartos médio e luxo possuem esta comodidade.
-// Implemente essa característica com método que contém um print como
-//  “Servindo café da manhã no quarto do $tipo”;Serviço de quarto: 
-//  exclusivo do quarto luxo. Crie um método print do serviço de quarto, como "Limpando o quarto $tipo."
-// Vamos lá?
+  void reservar() {
+    print("Reserva realizada para $diarias diarias no quarto $tipo.");
+  }
 
-// 6. Criando um método de cálculo de diárias
-// Agora, cada tipo de quarto deve calcular o valor total da reserva com 
-// base em tarifas específicas. Você precisa ajustar as classes para lidar com essas tarifas.
+  void calcularValorTotal() {
+    print("Total a pagar: R\$${diarias * valorDiaria}");
+  }
+}
 
-// Adicione um método calcularValorTotal nas classes Quarto, QuartoMedio e QuartoLuxo.
-//  O método deve calcular o valor total da reserva com base em uma tarifa diária
-//   específica para cada tipo de quarto. Na main, crie exemplos de reservas para os três tipos de quarto e mostre o valor total calculado.
+class QuartoSimples extends Quarto {
+  QuartoSimples(int diarias) : super(diarias, 80, 'Simples');
+}
 
-void main(){
+class QuartoMedio extends Quarto {
+  QuartoMedio(int diarias) : super(diarias, 250, 'Médio');
 
- }
+  void servirCafeDaManha() {
+    print("Servindo cafe da manha no quarto $tipo.");
+  }
+}
 
- class Quarto{
- String tipoQuarto;
- double valorDiaria;
- int numeroDiaria;
- String metReserva;
+class QuartoLuxo extends Quarto {
+  QuartoLuxo(int diarias) : super(diarias, 1000, 'Luxo');
 
- Quarto(this.tipoQuarto,this.valorDiaria,this.numeroDiaria,this.metReserva);
- }
+  void servirCafeDaManha() {
+    print("Servindo cafe da manha no quarto $tipo.");
+  }
 
- class QuartoSimples extends Quarto{
-    QuartoSimples(super.tipoQuarto,super.valorDiaria,super.numeroDiaria,super.metReserva);
- }
- class QuartoMedio extends Quarto{
-    QuartoMedio(super.tipoQuarto,super.valorDiaria,super.numeroDiaria,super.metReserva);
- }
- class QuartoLuxo extends Quarto{
-    QuartoLuxo(super.tipoQuarto,super.valorDiaria,super.numeroDiaria,super.metReserva);
- }
-
-
+  void servicoDeQuarto() {
+    print("Limpando quarto $tipo.");
+  }
+}
