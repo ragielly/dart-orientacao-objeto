@@ -16,9 +16,14 @@ void main(){
   Planta planta1 = Planta("Girassol", "Flor");
   Planta planta2 = Planta("Pinheiro", "Arvore");
   Animal animal1 = Animal("Humano", "Fala", 75);
+  Animal animal2 = Animal("Cão", "Late", 20);
+  Animal animal3 = Animal("Gato", "Mia", 20);
 
   planta1.mostrarCaracteristicas();
   planta2.mostrarCaracteristicas();
+  animal1.mostrarCaracteristicas();
+  animal2.mostrarCaracteristicas();
+  animal3.mostrarCaracteristicas();
 
 
 }
